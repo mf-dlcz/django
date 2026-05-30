@@ -65,3 +65,18 @@ The view also typically uses a template to build the response containing the dat
 
 #### How a view works:
 - The view is the server-side component that receives an HTTP request and returns and HTTP response.
+- When the browser sends an HTTP request to the application, a view defined in the application receives the 
+request, runs the business logic to process the request, and returns an HTTP response.
+
+#### Types of views
+- Views can be implemented in Django using a function or a class.
+
+##### _Function-based view_:
+is a simple Python function that takes an object of type HttpRequest as its first parameter.  
+The object contains the data from the incoming HTTP request. The function defines all the code that
+implements the business logic from the view. When the function finishes running, the function returns
+an object of type HttpResponse.
+
+##### _Class-based view_:
+This class defines properties and methods that give you the ability to respond to different HTTP request methods.
+
