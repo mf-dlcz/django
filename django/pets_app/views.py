@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from .models import Pet
 from django.shortcuts import render
 
@@ -9,7 +8,6 @@ def pet(request, pet_id):
 
     # 2-3-4 - load template, render it and return the HTTP response
     return render(request, "pets_app/pet.html", context)
-
 
 def listPets(request):
     context = {
