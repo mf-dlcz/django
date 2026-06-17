@@ -62,6 +62,11 @@ Run the following command to show data
     datetime(2023, 7, 6), distemper = datetime(2023, 12, 9))
     card2.save()
     ```
+5. Update column in table:
+    ```
+    sqlite3 -line db.sqlite3 'UPDATE pets_app_pet set owner="name" WHERE name="pet_name"'
+    ```
+
 4. Exit Shell:
     ```
     quit() or Ctrl+D
@@ -84,7 +89,7 @@ Run the following command to show data
     all_breeds = Breed.objects.all()
     all_breeds
     ```
-4. Retrieves a specifi object:
+4. Retrieves a specific object:
     ```
     all_breeds[0]
     ```
