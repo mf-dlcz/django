@@ -20,8 +20,14 @@ def listPets(request):
 def visit(request, pet_id):
     pet = Pet.objects.filter(id=pet_id).first()
     lastvisit = pet.vetvisit_set.last()
-    if lastvisit and not lastvisit.is_today:
+    
+    # set vet from last visit or default to unknown
+    vet = "Unknown"
+    if lastvisit:
         vet = pet.vetvisit_set.last().vet
+        
+    # add a rabies visit today, unless there was a visit today
+    if lastvisit is None or (lastvisit and not lastvisit.is_today):
         newvisit = VetVisit(pet=pet, vet=vet, notes="rabies vaccination")
         newvisit.save()
         pet.card.rabies = datetime.today().strftime('%Y-%m-%d')

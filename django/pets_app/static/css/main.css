@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+}
+
+.banner {
+    background-color: #250902;
+    color: #FFFFFF;
+    font-size: 250%;
+}
+
+.banner img {
+    height: 150px;
+    background-color: #FFFFFF;
+    padding: 0 auto;
+    margin: 10 auto;
+}
+
+.nav-menu {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.nav-menu a {
+    float: left;
+    display: block;
+    color: white;
+    background-color: #640D14;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-decoration: none;
+    /*stops the links from being underlined*/
+}
+
+.nav-menu a:hover {
+    background-color: #800E13;
+    width: 100%;
+
+}
+
+h2 {
+    background-color: #800E13;
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: Copperplate;
+}
+
+.pets {
+    float: left;
+    width: 100%;
+}
+
+.pets table {
+    width: 100%;
+    padding: 5px;
+    table-layout: fixed;
+}
+
+.pets p {
+    font-family: Copperplate;
+}
+
+.pets tr {
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.pets td {
+    background-color: #AD2831;
+    padding: 10px;
+}
+
+.pet {
+    float: left;
+    width: 100%;
+    padding-left: 15px;
+    padding-right:15px;
+}
+
+.sidebar {
+    float: left;
+    width: 25%;
+}
+
+.sidebar p[id="italicize"] {
+    font-style: italic;
+}
+
+.cert {
+    float: left;
+    width: 10%;
+}
+
+.cert img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background-color: #250902;
+    color: #FFFFFF;
+    font-size: 12px;
+    text-align: center;
+}
+
+.btn-info {
+    color: #F6E9EA;
+    text-decoration: underline;
+}
+
+.btn-info:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+    font-size: 18px;
+}

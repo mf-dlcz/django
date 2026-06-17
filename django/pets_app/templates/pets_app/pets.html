@@ -1,45 +1,6 @@
 {% extends "pets_app/base.html" %}
 {% block content %}
 
-{% comment %}
-<div class="pets" style="background-color: lightblue">
-  <h3>List of pets - WORK IN PROGRESS</h3>
-  <table>
-    <tr>
-      <td>Name</td>
-      <td>Gender</td>
-      <td>Age</td>
-      <td>Size</td>
-      <td>Owner</td>
-    </tr>
-    <!-- This is a for loop in DTL -->
-    {% for p in pets %}
-    <tr style="background-color: {% cycle 'lightgrey' 'lightgreen' %};">
-      <td>{{ p.name }}</td>
-      <td>{{ p.get_gender_display }}</td>
-      <td>{{ p.birth | timesince }}</td>
-      <td>{% if not p.weight %}
-        -
-        {% elif p.weight < 15 %}
-        Small
-        {% elif p.weight < 35 %}
-        Medium
-        {% else %}
-        Large
-        {% endif %}</td>
-      <td>{{ p.owner }}</td>
-    </tr>
-    <!-- Is there is no data here it will display "No pets yet" -->
-    {% empty %}
-    <tr>
-      <td>No pet yet</td>
-    </tr>
-    {% endfor %}
-  </table>
-</div>
-
-{% endcomment %}
-
 <div class="pets" id="pets-link">
 
     <h2>Pets</h2>
