@@ -17,20 +17,19 @@ def listPets(request):
 
     return render(request, "pets_app/pets.html", context)
 
-def visit(request, pet_id):
+def visit(request, pet_id, vaccine):
     pet = Pet.objects.filter(id=pet_id).first()
     lastvisit = pet.vetvisit_set.last()
     
-    # set vet from last visit or default to unknown
     vet = "Unknown"
     if lastvisit:
-        vet = pet.vetvisit_set.last().vet
+        vet = lastvisit.vet
         
-    # add a rabies visit today, unless there was a visit today
-    if lastvisit is None or (lastvisit and not lastvisit.is_today):
-        newvisit = VetVisit(pet=pet, vet=vet, notes="rabies vaccination")
-        newvisit.save()
-        pet.card.rabies = datetime.today().strftime('%Y-%m-%d')
+    today = datetime.today().date()
+    already_vaccinated_today = pet.vetvisit_set.filter(date=today, notes=f"{vaccine} vaccination").exists()
+    if not already_vaccinated_today:
+        VetVisit(pet=pet, vet=vet, date=today, notes=f"{vaccine} vaccination").save()
+        setattr(pet.card, vaccine, today)
         pet.card.save()
     context = {'pet': pet}
     return render(request, "pets_app/pet.html", context)

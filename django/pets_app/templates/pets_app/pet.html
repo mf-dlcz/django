@@ -6,7 +6,9 @@
     <h2>{{ pet.name }}</h2>
 
     <div class="pet">
+        <br/>
         <img src="{{ pet.picture.url }}" width="200" /><br>
+        <br/>
         <b>Gender:</b> {{ pet.get_gender_display }}<br/>
         <b>Birth:</b> {{ pet.birth }}<br/>
         <b>Breed:</b> {% for b in pet.breed.all %}
@@ -40,10 +42,37 @@
             {% endfor %}
         </ul>
         <br/>
+        <b>New Visit:</b><br/>
+        <br/>
+        <!-- Rabies vaccine button -->
         <a class="btn btn-info pull-right" 
-            href="{% url 'visit' pet.id %}">
-            New visit: Rabies vaccine
-        </a><br/><br/>
+            href="{% url 'visit' pet.id 'rabies' %}">
+            Rabies Vaccine
+        </a>
+        <br/>
+        <br/>
+        <br/>
+        <!-- Hepatitis vaccine button -->
+        <a class="btn btn-info pull-right" 
+            href="{% url 'visit' pet.id 'hepatitis' %}">
+            Hepatities Vaccine
+        </a>
+        <br/>
+        <br/>
+        <br/>
+        <!-- Borrelia vaccine button -->
+        <a class="btn btn-info pull-right" 
+            href="{% url 'visit' pet.id 'borrelia' %}">
+            Borrelia Vaccine
+        </a>
+        <br/>
+        <br/>
+        <br/>
+        <!-- Distemper vaccine button -->
+        <a class="btn btn-info pull-right" 
+            href="{% url 'visit' pet.id 'distemper' %}">
+            Distemper Vaccine
+        </a>
     </div>
 </div>
 {% endblock content %}
