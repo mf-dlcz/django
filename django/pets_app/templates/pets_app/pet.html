@@ -44,35 +44,48 @@
         <br/>
         <b>New Visit:</b><br/>
         <br/>
-        <!-- Rabies vaccine button -->
-        <a class="btn btn-info pull-right" 
-            href="{% url 'visit' pet.id 'rabies' %}">
-            Rabies Vaccine
-        </a>
-        <br/>
-        <br/>
-        <br/>
-        <!-- Hepatitis vaccine button -->
-        <a class="btn btn-info pull-right" 
-            href="{% url 'visit' pet.id 'hepatitis' %}">
-            Hepatities Vaccine
-        </a>
-        <br/>
-        <br/>
-        <br/>
-        <!-- Borrelia vaccine button -->
-        <a class="btn btn-info pull-right" 
-            href="{% url 'visit' pet.id 'borrelia' %}">
-            Borrelia Vaccine
-        </a>
-        <br/>
-        <br/>
-        <br/>
-        <!-- Distemper vaccine button -->
-        <a class="btn btn-info pull-right" 
-            href="{% url 'visit' pet.id 'distemper' %}">
-            Distemper Vaccine
-        </a>
+        <!-- Log a Vaccine -->
+        <button class="btn btn-info" data-toggle="modal" data-target="#vaccineModal">Log a Vaccine</button>
+
+        <div class="modal fade" id="vaccineModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Log a Vaccine</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <form id="vaccineForm">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Vaccine</label>
+                                <select class="form-control" id="vaccineSelect">
+                                    <option value="rabies">Rabies</option>
+                                    <option value="hepatitis">Hepatitis</option>
+                                    <option value="borrelia">Borrelia</option>
+                                    <option value="distemper">Distemper</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Vet</label>
+                                <input type="text" class="form-control" id="vetInput" value="{{ pet.vetvisit_set.last.vet|default:'Unknown' }}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-info" onclick="submitVaccine({{ pet.id }})">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function submitVaccine(petId) {
+                const vaccine = document.getElementById('vaccineSelect').value;
+                const vet = document.getElementById('vetInput').value;
+                window.location.href = `/visit/${petId}/${vaccine}?vet=${encodeURIComponent(vet)}`;
+            }
+        </script>
     </div>
 </div>
 {% endblock content %}

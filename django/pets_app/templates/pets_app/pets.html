@@ -3,8 +3,9 @@
 
 <div class="pets" id="pets-link">
     
-    <h2>Pets</h2>
-    
+    <h2 style="padding: 15px;">Pets</h2>
+    <br/>
+    <br/>
     <table>
         <tr>
             {% for p in pets %}
@@ -13,7 +14,7 @@
         <tr>
             {% endif %}
             <td><a href="{% url 'pet' p.id %}">
-                <img src="{{ p.picture.url }}" width="200" />
+                <img src="{{ p.picture.url }}" width="250" />
                 <p>{{ p.name }}</a></p>
                 <p>{{ p.owner }}</p>
             </td>

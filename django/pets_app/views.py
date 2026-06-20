@@ -20,10 +20,8 @@ def listPets(request):
 def visit(request, pet_id, vaccine):
     pet = Pet.objects.filter(id=pet_id).first()
     lastvisit = pet.vetvisit_set.last()
-    
-    vet = "Unknown"
-    if lastvisit:
-        vet = lastvisit.vet
+
+    vet = request.GET.get('vet') or (lastvisit.vet if lastvisit else "Unknown")
         
     today = datetime.today().date()
     already_vaccinated_today = pet.vetvisit_set.filter(date=today, notes=f"{vaccine} vaccination").exists()
