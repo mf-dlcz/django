@@ -1,5 +1,16 @@
 # Pets App
 
+![Project Image](app_imgs/1.png)
+![Project Image](app_imgs/2.png)
+
+## Table of Contents
+- [Setup](#setup)
+    - [Database](#database)
+    - [Django Shell](#django-shell)
+        - [Object Lookup](#object-lookup)
+- [Apps](#pets_all)
+    - [NOTES](#notes)
+
 ## Setup
 
 1. Create and activate virtual environment:

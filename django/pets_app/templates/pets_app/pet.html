@@ -3,11 +3,11 @@
 
 <div class="pet" style="background-color: #B6DEF6; color: #0D1A2B; ">
 
-    <h2>{{ pet.name }}</h2>
+    <h2 style="margin-left: -15px; padding: 15px;">{{ pet.name }}</h2>
 
     <div class="pet">
         <br/>
-        <img src="{{ pet.picture.url }}" width="200" /><br>
+        <img src="{{ pet.picture.url }}" width="250" /><br>
         <br/>
         <b>Gender:</b> {{ pet.get_gender_display }}<br/>
         <b>Birth:</b> {{ pet.birth }}<br/>
