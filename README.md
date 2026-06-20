@@ -9,6 +9,7 @@
     - [Django Shell](#django-shell)
         - [Object Lookup](#object-lookup)
 - [Apps](#pets_all)
+    - [Notes](#notes)
 
 ## Setup
 
@@ -121,10 +122,14 @@ Run the following command to show data
 
 ## Apps
 
-### pets_app
+### Pets_app
 
 Models:
 - `Breed` - stores breed name, weight, and height
 - `VaccinationCard` - tracks rabies, hepatitis, borrelia, and distemper vaccination dates
 - `Pet` - stores pet info (name, gender, birth, owner, weight, height) linked to a `Breed` and `VaccinationCard`
 - `VetVisit` - records vet visits with date and notes, linked to a `Pet`
+
+## Notes
+
+- `venv/` is excluded from version control via `.gitignore`
