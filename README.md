@@ -1,4 +1,4 @@
-# Pets App
+# Pets-App
 
 ![Project Image](app_imgs/1.png)
 ![Project Image](app_imgs/2.png)
